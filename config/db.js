@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
-const db = new Sequelize('crud_api', '', '', {
-  host: 'mysql://ba135fc9aceecf:1d29e835@us-cdbr-east-06.cleardb.net/heroku_5a8cd2b924a4c18?reconnect=true',
+const db = new Sequelize('heroku_5a8cd2b924a4c18', 'ba135fc9aceecf', '1d29e835', {
+  host: 'us-cdbr-east-06.cleardb.net',
   dialect: 'mysql',
   port: '3306',
   operatorsAliases: 0,
