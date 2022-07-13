@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+/* const Sequelize = require('sequelize');
 
 const db = new Sequelize('heroku_5a8cd2b924a4c18', 'ba135fc9aceecf', '1d29e835', {
   host: 'us-cdbr-east-06.cleardb.net',
@@ -17,3 +17,4 @@ const db = new Sequelize('heroku_5a8cd2b924a4c18', 'ba135fc9aceecf', '1d29e835',
 });
 
 module.exports = db;
+ */
