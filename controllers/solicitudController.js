@@ -3,11 +3,47 @@ const Solicitudes = require('../models/Solicitudes');
 exports.test = (req, res) =>{
   const msg = "<--------------Hola Postman-------------->"
   console.log(msg);
+  res.json({
+    "cliente": {
+      "tipo": "fisico",
+      "fisica": {
+        "nombre": "Neri Jose",
+        "paterno": "",
+        "materno": "Rincon Figueroa",
+        "curp": "RIFN971021HNTNGR07"
+      },
+      "moral": {
+        "razon_social": "Nerincon Corp S.A de C.V",
+        "representante": "Luis Eduardo Rios"
+      },
+      "rfc": "RIFN971021J76",
+      "email": "njrfguepardo@gmail.com",
+      "celular": "3241058152"
+    },
+    "domicilio": {
+      "calle": "Brasil",
+      "interior": "47",
+      "exterior": "0",
+      "colonia": "Los Fresnos Pte",
+      "c_postal": "63185",
+      "poblacion": "Tepic",
+      "estado": "Nayarit",
+      "municipio": "Tepic"
+    },
+    "ine_fisico": "",
+    "buro_fisico": "",
+    "comprobante_domicilio": "",
+    "situacion_fiscal": "_ Neri Rincón_.pdf",
+    "ine_reprecentante": "_ Neri Rincón_.pdf",
+    "buro_moral": "_ Neri Rincón_.pdf"
+  });
 }
 
 exports.crearSolicitud = async (req, res) => {
     console.log('Hola Crear');
     console.log(req.body);
+
+
     
     // leer los datos
      console.log(req.body.cliente);
