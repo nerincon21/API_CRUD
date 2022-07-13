@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const db = new Sequelize('localhost', 'root', '', {
+const db = new Sequelize('crudapi', 'root', '', {
   host: '127.0.0.1',
   dialect: 'mysql',
   port: '3306',
