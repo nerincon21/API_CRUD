@@ -9,7 +9,7 @@ const solicitudController = require('../controllers/solicitudController');
 
 
     //vista mostrar solicitudes
-    router.get('/', solicitudController.solicitudesShow);
+    //router.get('/', solicitudController.solicitudesShow);
     
     //añadir solicitud
     router.post('/solicitudes', solicitudController.crearSolicitud);
