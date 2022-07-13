@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+/* const Sequelize = require('sequelize');
 
 const db = new Sequelize('crudapi', 'root', '', {
   host: '127.0.0.1',
@@ -17,3 +17,4 @@ const db = new Sequelize('crudapi', 'root', '', {
 });
 
 module.exports = db;
+ */
