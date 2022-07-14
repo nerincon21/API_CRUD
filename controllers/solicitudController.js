@@ -94,6 +94,7 @@ exports.solicitudesShow = async (req, res) => {
 //    console.log(solicitudes);
     //console.log(solicitudes)
     // render a la vista   
+    res.json(solicitudes)
 }
 
 // Me mande el ID 
