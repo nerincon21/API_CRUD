@@ -38,6 +38,8 @@ app.use(bodyParser.json({ type: 'application/json' }));
 
 app.use(cors());
 
+
+//A ver que pedo
 //API REST
 // Routing
 app.use('/pre', preSolicitudes);
