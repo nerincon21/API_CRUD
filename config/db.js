@@ -3,6 +3,7 @@ const Sequelize = require('sequelize');
 const db = new Sequelize('sql3506337', 'sql3506337', 'RDZXeDH1AE', {
   host: 'sql3.freesqldatabase.com',
   dialect: 'mysql',
+  dialectModule: require('mysql2'),
   port: '3306',
   operatorsAliases: 0,
   define: {
