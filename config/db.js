@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const mysql2 = require('mysql2');
 
 const db = new Sequelize('sql3506337', 'sql3506337', 'RDZXeDH1AE', {
   host: 'sql3.freesqldatabase.com',
