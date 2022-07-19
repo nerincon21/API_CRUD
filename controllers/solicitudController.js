@@ -76,7 +76,7 @@ exports.crearSolicitud = async (req, res) => {
           /*ine_fisico, buro_fisico, comprobante_domicilio, situacion_fiscal, ine_representante, buro_moral*/
       })        
 
-    res.json({msg: "Pre-Solicitud Creada Con Exito"});
+    res.json({msg: "Pre-Solicitud Creada Con Éxito"});
 
     } else {
       console.log("No estoy recibiendo datos");
@@ -144,7 +144,7 @@ exports.updateSolicitud = async (req, res) => {
       id: req.body.cliente.id
     }
   });
-  res.json({msg: "Pre-Solicitud Actualizada Con Exito"});
+  res.json({msg: "Pre-Solicitud Actualizada Con Éxito"});
 }
 
 exports.delete = async (req, res) => {
@@ -155,5 +155,5 @@ exports.delete = async (req, res) => {
           id: req.params.id
         }
       });
-  res.json({msg: "Pre-Solicitud Eliminada Con Exito"});
+  res.json({msg: "Pre-Solicitud Eliminada Con Éxito"});
 }
