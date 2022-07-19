@@ -23,7 +23,7 @@ const solicitudController = require('../controllers/solicitudController');
     router.post('/update', solicitudController.updateSolicitud);
     
     // eliminar solicitudes
-    router.get('/delete/:id', solicitudController.delete);
+    router.post('/delete/:id', solicitudController.delete);
 
     
 
