@@ -97,7 +97,7 @@ exports.solicitudesShow = async (req, res) => {
   res.json(solicitudes)
 }
 
-// Me mande el ID 
+
 exports.editar_solicitudes = async (req, res) => {
   console.log('<*---Editar---*>');
     console.log(req.params);
