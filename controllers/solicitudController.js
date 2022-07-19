@@ -1,7 +1,7 @@
 const Solicitudes = require('../models/Solicitudes');
 
 exports.test = (req, res) =>{
-  const msg = "<--------------Hola Postman-------------->"
+  const msg = "<--------------Hola Consola-------------->"
   console.log(msg);
   res.json({
     "cliente": {
