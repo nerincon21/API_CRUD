@@ -1,0 +1,280 @@
+<%- include('./layout.ejs') %>
+<br>
+<div class="container">
+    <div class="col-md-12">
+        <div class="card">
+                <!-- <form action="/save" method="POST" id="form_solicitud"  enctype="multipart/form-data"> -->
+            <form  action="/update" method="POST" id="form_solicitud">
+                <!-- <form id="form_solicitud"> -->
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 style="color: #0d6efd;">Pre-Solicitud de Crédito</h2>
+                            <!-- <img src='assets/img/logo.png' style='height: 80px;width: 80px;/*padding: 10px;*//*margin: 10px;*/float: right;'> -->
+                        </div>
+                        &nbsp; &nbsp;
+                        <hr>
+                        &nbsp; &nbsp; 
+                        <div class="row">
+                            <span>Tipo de Cliente:</span>
+                            <br>
+                            <div class="col-md-3">
+                                <label class="form-check-label">
+                                    <label>Persona Física</label> 
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input class="form-check-input" type='radio' value="<%= solicitudes_edit.f %>"  id="r_fisica" name="cliente[tipo]" checked="">                                            
+                                </label> 
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-check-label">
+                                    <label>Persona Moral</label>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input class="form-check-input" type="radio"  value="<%= solicitudes_edit.m %>" name="cliente[tipo]" id="r_moral">
+                                </label> 
+                            </div>
+                            &nbsp;                                        
+                        </div>
+                        <hr>
+                        <div id="div_fisica">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="text" name="cliente[id]" value="<%= solicitudes_edit.id %> " hidden>
+                                    <label>Nombre(s)</label> 
+                                    <input type="text" class="form-control" id="i_nombre" value="<%= solicitudes_edit.nombre %>"  name="cliente[fisica][nombre]" value=""   required  >
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Apellido Paterno</label>
+                                    <input type="text" class="form-control" id="i_paterno" value="<%= solicitudes_edit.paterno %>" name="cliente[fisica][paterno]" required >
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Apellido Materno</label>
+                                    <input type="text" class="form-control" id="i_materno" value="<%= solicitudes_edit.materno %>" name="cliente[fisica][materno]"  required >
+                                </div>
+                            </div>
+                        </div>
+                        <div id="div_moral" style='display:none;'>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Nombre o Razon Social</label>
+                                    <input type="text" class="form-control" id="i_razon_social" value="<%= solicitudes_edit.razon_social %>"  name="cliente[moral][razon_social]">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Nombre del Representante Legal</label>
+                                    <input type="text" class="form-control" id="i_representante" value="<%= solicitudes_edit.representante %>" name="cliente[moral][representante]" >
+                                </div>
+                                <!--  -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>R.F.C</label>
+                                <input type="text" class="form-control" id="i_rfc" value="<%= solicitudes_edit.rfc %>"  name="cliente[rfc]" required>
+                            </div>
+                            <div class="col-md-4" id="div_curp">
+                                <label for="i_curp">CURP</label>
+                                <input type="text" class="form-control" id="i_curp" value="<%= solicitudes_edit.curp %>" name="cliente[fisica][curp]" required >
+                                <label for="i_curp" class="error"></label>
+                            </div>
+                        </div>
+                        
+                        <!-- personas morales  -->
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label>Correo Electrónico</label>
+                                <input type="email" class="form-control" id="i_email" value="<%= solicitudes_edit.email %>" name="cliente[email]"  placeholder='ejemplo@email.com'required >
+                            </div>
+                            <div class="col-md-5">
+                                <label>Núm de celular</label>
+                                <input type="text" class="form-control" id="i_celular_fisico" value="<%= solicitudes_edit.celular %>" name="cliente[celular]" required >
+                            </div>
+                        </div>
+                        <br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <hr>
+                            <h3 style='color:#0d6efd;'>Domicilio</h3>
+                        <hr>
+                        <div id="div_domicilio">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Calle</label><br>
+                                    <input type="text" class="form-control" id="i_domicilio"  value="<%= solicitudes_edit.calle %>" name="domicilio[calle]" style="WIDTH: 760px;"  >
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label>Num.interior</label><br>
+                                            <input type="text"class="form-control" id="i_interior" value="<%= solicitudes_edit.interior %>" name="domicilio[interior]" style="WIDTH: 106px;" >
+                                        </div>
+                                        <br>
+                                        &nbsp;
+                                        <div class="col-md-3">
+                                            <label>Num.Exterior</label><br>
+                                            <input type="text" class="form-control" id="i_exterior" value="<%= solicitudes_edit.exterior %>"  name="domicilio[exterior]" style="WIDTH: 100px;" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Colonia</label><br>
+                                    <input type="text"  class="form-control" id="i_colonia"   value="<%= solicitudes_edit.colonia %>" name="domicilio[colonia]"  style="WIDTH: 760px;"  >
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label>C.P</label><br>
+                                            <input type="text" class="form-control" id="i_c_postal"  value="<%= solicitudes_edit.c_postal %>" name="domicilio[c_postal]" style="WIDTH: 106px;" required >
+                                        </div>
+                                        <br>
+                                        &nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Población</label><br>
+                                    <input type="text" class="form-control" id="i_poblacion"  value="<%=solicitudes_edit.poblacion %>"  name="domicilio[poblacion]"  style="WIDTH: 760px;" required >
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4">
+                                    <label>Estado</label><br>
+                                    <select class="form-control" id="s_estado"style="width: 100%;"  name="domicilio[estado]"  required>
+                                        <option value=""disabled selected>Seleccione un Estado</option>  
+                                        <option value="<%=solicitudes_edit.estado %>"><%=solicitudes_edit.estado %></option>  
+                                        <option <%= solicitudes_edit.estado == 'Aguascalientes' ? "selected" : '' %> value= "Aguascalientes" >Aguascalientes</option>  
+                                        <option <%= solicitudes_edit.estado == 'Baja California' ? "selected" : '' %> value= "Baja California" >Baja California</option>  
+                                        <option <%= solicitudes_edit.estado == 'Baja  California Sur' ? "selected" : '' %> value= "Baja  California Sur" >Baja  California Sur</option>  
+                                        <option <%= solicitudes_edit.estado == 'Campeche' ? "selected" : '' %> value= "Campeche" >Campeche</option>  
+                                        <option <%= solicitudes_edit.estado == 'Chiapas' ? "selected" : '' %> value= "Chiapas" >Chiapas</option>  
+                                        <option <%= solicitudes_edit.estado == 'Chihuahua' ? "selected" : '' %> value= "Chihuahua" >Chihuahua</option>  
+                                        <option <%= solicitudes_edit.estado == 'Ciudad de México' ? "selected" : '' %> value= "Ciudad de México" >Ciudad de México</option>  
+                                        <option <%= solicitudes_edit.estado == 'Coahuila' ? "selected" : '' %> value= "Coahuila" >Coahuila</option>  
+                                        <option <%= solicitudes_edit.estado == 'Colima' ? "selected" : '' %> value= "Colima" >Colima</option>  
+                                        <option <%= solicitudes_edit.estado == 'Durango' ? "selected" : '' %> value= "Durango" >Durango</option>  
+                                        <option <%= solicitudes_edit.estado == 'Guanajuato' ? "selected" : '' %> value= "Guanajuato" >Guanajuato</option>  
+                                        <option <%= solicitudes_edit.estado == 'Guerrero' ? "selected" : '' %> value= "Guerrero" >Guerrero</option>  
+                                        <option <%= solicitudes_edit.estado == 'Hidalgo' ? "selected" : '' %> value= "Hidalgo" >Hidalgo</option>  
+                                        <option <%= solicitudes_edit.estado == 'Jalisco' ? "selected" : '' %> value= "Jalisco" >Jalisco</option>  
+                                        <option <%= solicitudes_edit.estado == 'México' ? "selected" : '' %> value= "México" >México</option>  
+                                        <option <%= solicitudes_edit.estado == 'Michoacán' ? "selected" : '' %> value= "Michoacán" >Michoacán</option>  
+                                        <option <%= solicitudes_edit.estado == 'Morelos' ? "selected" : '' %> value= "Morelos" >Morelos</option>  
+                                        <option <%= solicitudes_edit.estado == 'Nayarit' ? "selected" : '' %> value= "Nayarit" >Nayarit</option>  
+                                        <option <%= solicitudes_edit.estado == 'Nuevo León' ? "selected" : '' %> value= "Nuevo León" >Nuevo León</option>  
+                                        <option <%= solicitudes_edit.estado == 'Oaxaca' ? "selected" : '' %> value= "Oaxaca" >Oaxaca</option>  
+                                        <option <%= solicitudes_edit.estado == 'Puebla' ? "selected" : '' %> value= "Puebla" >Puebla</option>  
+                                        <option <%= solicitudes_edit.estado == 'Querétaro' ? "selected" : '' %> value= "Querétaro" >Querétaro</option>  
+                                        <option <%= solicitudes_edit.estado == 'Quintana_Roo' ? "selected" : '' %> value= "Quintana_Roo" >Quintana Roo</option>  
+                                        <option <%= solicitudes_edit.estado == 'San_Luis_Potosí' ? "selected" : '' %> value= "San_Luis_Potosí" >San Luis Potosí</option>  
+                                        <option <%= solicitudes_edit.estado == 'Sinaloa' ? "selected" : '' %> value= "Sinaloa" >Sinaloa</option>  
+                                        <option <%= solicitudes_edit.estado == 'Sonora' ? "selected" : '' %> value= "Sonora" >Sonora</option>  
+                                        <option <%= solicitudes_edit.estado == 'Tabasco' ? "selected" : '' %> value= "Tabasco" >Tabasco</option>  
+                                        <option <%= solicitudes_edit.estado == 'Tamaulipas' ? "selected" : '' %> value= "Tamaulipas" >Tamaulipas</option>  
+                                        <option <%= solicitudes_edit.estado == 'Tlaxcala' ? "selected" : '' %> value= "Tlaxcala" >Tlaxcala</option>  
+                                        <option <%= solicitudes_edit.estado == 'Veracruz' ? "selected" : '' %> value= "Veracruz" >Veracruz</option>  
+                                        <option <%= solicitudes_edit.estado == 'Yucatán' ? "selected" : '' %> value= "Yucatán" >Yucatán</option>  
+                                        <option <%= solicitudes_edit.estado == 'Zacatecas' ? "selected" : '' %> value= "Zacatecas" >Zacatecas</option>  
+                                    </select>   
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Municipio</label><br>
+                                    <input type="text" class="form-control" id="i_municipio"  value="<%= solicitudes_edit.municipio %>"   name="domicilio[municipio]"style="WIDTH: 760px;" required >
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <h2 style="color: #0d6efd;">Documentación</h2>
+                        <hr>
+                        <div id="div_doc_fisicos">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="ine">Identificacion Oficial (INE).</label> 
+                                    <input   class="form-control"  type='file' name="ine_fisico"  id="i_ine_fisico" accept=".pdf"  data-errors-position="outside" > 
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="ine">Buro de Crédito</label> 
+                                    <input class="form-control"  type='file' name="buro_fisico"  id="i_buro_fisico"  accept=".pdf"  data-errors-position="outside" >                                                        
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="ine">Comprobante de Domicilio</label> 
+                                    <input   class="form-control"  type='file' name="comprobante_domicilio"  id="i_comprobante_fisico"  accept=".pdf"  data-errors-position="outside" >                                                        
+                                </div>
+                            </div>
+                        </div>
+                        <div id="div_doc_morales" style="display: none;">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="ine">Constancia de Situación Físcal</label> 
+                                    <input   class="form-control"  type='file' name="situacion_fiscal"  id="i_constancia_fiscal" accept=".pdf"  data-errors-position="outside" > 
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="ine">Identificacion Oficial del Representante (INE). </label> 
+                                    <input   class="form-control"  type='file'name="ine_reprecentante"  id="i_ine_moral" accept=".pdf"  data-errors-position="outside" >                                                        
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="ine">Formato Consulta Buró de Credito</label> 
+                                    
+                                    <input  class="form-control"  type='file' name="buro_moral" id="i_buro_moral" accept=".pdf"  data-errors-position="outside" >                                                        
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <hr>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="i_aviso" checked>
+                                    <label class="form-check-label" for="i_aviso">
+                                        Acepto los terminos y condiciones del
+                                    </label> &nbsp;<a href="">Aviso de privacidad</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-2">
+                                <button class="btn btn-primary"  id="btn_guardar" >Guardar Cambios</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(function() {
+        $('#form_solicitud').validate();
+        $('#r_fisica').trigger('click');
+
+
+        $('#r_fisica').click(function(){
+            if($(this).is(':checked')) {  
+                $('#div_fisica').css('display', '');
+                $('#div_curp').css('display', '');
+                $('#div_doc_fisicos').css('display', '');
+                $('#div_moral').css('display', 'none');
+                $('#div_doc_morales').css('display', 'none');
+            }
+        });
+
+        $('#r_moral').click(function(){
+            if($(this).is(':checked')) {  
+                $('#div_fisica').css('display','none');
+                $('#div_curp').css('display', 'none');
+                $('#div_doc_fisicos').css('display', 'none');
+                $('#div_moral').css('display', '');
+                $('#div_doc_morales').css('display', '');
+            }
+        });
+
+       
+    });
+</script>
+
