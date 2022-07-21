@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const mysql2 = require('mysql2');
 
 const db = new Sequelize('apitest', 'root', '', {
-  host: 'sql3.freesqldatabase.com',
+  host: 'hip-watch-357017:us-central1:apicrudtest',
   dialect: 'mysql',
   dialectModule: require('mysql2'),
   port: '3306',
