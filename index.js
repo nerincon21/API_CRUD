@@ -48,8 +48,6 @@ app.use((req, res, next) => {
 });
 
 
-
-//A ver que pedo
 //API REST
 // Routing
 app.use('/pre', preSolicitudes);
