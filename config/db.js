@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const mysql2 = require('mysql2');
 
-const db = new Sequelize('apitest', 'root', '', {
+const db = new Sequelize('apitest', 'root', 'root', {
   host: '34.171.183.159',
   dialect: 'mysql',
   dialectModule: require('mysql2'),
