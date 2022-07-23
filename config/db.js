@@ -1,11 +1,10 @@
 const Sequelize = require('sequelize');
 const mysql2 = require('mysql2');
 
-const db = new Sequelize('sql3507916', 'sql3507916', 'CrT9wuNnc2', {
-  host: 'sql3.freesqldatabase.com',
+const db = new Sequelize('railway', 'root', 'VeA8Osbg1TI8QrQDkV33', {
+  host: 'containers-us-west-73.railway.app',
   dialect: 'mysql',
-  dialectModule: require('mysql2'),
-  port: '3306',
+  port: '6304',
   operatorsAliases: 0,
   define: {
       timestamps: false
