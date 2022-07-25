@@ -46,16 +46,46 @@ exports.crearSolicitud = async (req, res) => {
     if (!(JSON.stringify(req.body)=='{}')) { //Si no se leen datos 
 
       console.log("<----Leí los datos--->");
-      console.log(req.body.cliente);
-      var cliente = req.body.cliente.tipo;
-      cliente = cliente.substring(0, 1); //Acortamiento del tipo de cliente a 1 solo caracter Fisico (f) / Moral (m)
+      console.log(req.body);
+      console.log(req.files);
       
-      console.log("Cliente tipo ", cliente); //Se corrobora el acortamiento de cliente tipo
+      
+      // leer los datos
+      var cliente = req.body.cliente.tipo;
+      cliente = cliente.substring(0, 1);
+      
+      console.log(req.body.cliente.tipo);
+      console.log(req.body.cliente.rfc);
 
+      var ine_fisico = "";
+      var buro_fisico = "";
+      var comprobante_domicilio = "";
+      var situacion_fiscal = "";
+      var ine_representante = "";
+      var buro_moral = "";
+  
+      if (cliente == "f") {
 
-      //Crear la Solicitud
+        //if (req.files.ine_fisico){
+        console.log("Vienen de fisico")
+    
+        ine_fisico = req.files.ine_fisico[0].path; 
+        buro_fisico = req.files.buro_fisico[0].path; 
+        comprobante_domicilio = req.files.comprobante_domicilio[0].path;
+          
+      } else {
+    
+          console.log("Vienen de moral")
+   
+          situacion_fiscal = req.files.situacion_fiscal[0].path;
+          ine_representante = req.files.ine_reprecentante[0].path;
+          buro_moral = req.files.buro_moral[0].path;
+    
+      }
+  
       Solicitudes.create({
           cliente, 
+          
           nombre : req.body.cliente.fisica.nombre, 
           paterno : req.body.cliente.fisica.paterno, 
           materno : req.body.cliente.fisica.materno, 
@@ -73,19 +103,18 @@ exports.crearSolicitud = async (req, res) => {
           poblacion : req.body.domicilio.poblacion, 
           estado : req.body.domicilio.estado, 
           municipio : req.body.domicilio.municipio,
-
+  
           ine_fisico,
           buro_fisico,
           comprobante_domicilio,
           situacion_fiscal,
           ine_representante,
-          buro_moral,
-
+          buro_moral
+  
       })        
-
-/*       //console.log();
-      console.log(req.files.ine_fisico);
-      console.log(req.files); */
+  
+      //console.log();
+      console.log(req.files);
 
     res.json({msg: "Pre-Solicitud Creada Con Éxito"});
 
