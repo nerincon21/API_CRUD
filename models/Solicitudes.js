@@ -129,6 +129,35 @@ const Solicitudes = db.define('solicitudes', {
         type: Sequelize.STRING(100),
         allowNull: false 
     },
+    ine_fisico:{
+        type: Sequelize.STRING(100),
+        defaultValue: null
+    },
+
+    buro_fisico:{
+        type: Sequelize.STRING(100),
+        defaultValue: null
+    },
+
+    comprobante_domicilio:{
+        type: Sequelize.STRING(100),
+        defaultValue: null
+    },
+
+    situacion_fiscal:{
+        type: Sequelize.STRING(100),
+        defaultValue: null
+    },
+
+    ine_reprecentante:{
+        type: Sequelize.STRING(100),
+        defaultValue: null
+    },
+
+    buro_moral:{
+        type: Sequelize.STRING(100),
+        defaultValue: null
+    }
 
 });
 console.log("Hola desde el modelo crud_api");

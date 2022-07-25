@@ -73,8 +73,19 @@ exports.crearSolicitud = async (req, res) => {
           poblacion : req.body.domicilio.poblacion, 
           estado : req.body.domicilio.estado, 
           municipio : req.body.domicilio.municipio,
-          /*ine_fisico, buro_fisico, comprobante_domicilio, situacion_fiscal, ine_representante, buro_moral*/
+
+          ine_fisico,
+          buro_fisico,
+          comprobante_domicilio,
+          situacion_fiscal,
+          ine_representante,
+          buro_moral,
+
       })        
+
+/*       //console.log();
+      console.log(req.files.ine_fisico);
+      console.log(req.files); */
 
     res.json({msg: "Pre-Solicitud Creada Con Éxito"});
 
