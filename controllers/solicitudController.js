@@ -57,29 +57,31 @@ exports.crearSolicitud = async (req, res) => {
       console.log(req.body.cliente.tipo);
       console.log(req.body.cliente.rfc);
 
-      var ine_fisico = "";
-      var buro_fisico = "";
-      var comprobante_domicilio = "";
-      var situacion_fiscal = "";
-      var ine_representante = "";
-      var buro_moral = "";
-  
       if (cliente == "f") {
 
         //if (req.files.ine_fisico){
         console.log("Vienen de fisico")
     
-        ine_fisico = req.files.ine_fisico[0].path; 
-        buro_fisico = req.files.buro_fisico[0].path; 
-        comprobante_domicilio = req.files.comprobante_domicilio[0].path;
+        var ine_fisico = req.files.ine_fisico[0].path; 
+        var buro_fisico = req.files.buro_fisico[0].path; 
+        var comprobante_domicilio = req.files.comprobante_domicilio[0].path;
+
+        var situacion_fiscal = "";
+        var ine_representante = "";
+        var buro_moral = "";
+    
           
       } else {
     
           console.log("Vienen de moral")
+          
+          var ine_fisico = "";
+          var buro_fisico = "";
+          var comprobante_domicilio = "";
    
-          situacion_fiscal = req.files.situacion_fiscal[0].path;
-          ine_representante = req.files.ine_reprecentante[0].path;
-          buro_moral = req.files.buro_moral[0].path;
+          var situacion_fiscal = req.files.situacion_fiscal[0].path;
+          var ine_representante = req.files.ine_reprecentante[0].path;
+          var buro_moral = req.files.buro_moral[0].path;
     
       }
   
