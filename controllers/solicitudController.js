@@ -62,7 +62,8 @@ exports.crearSolicitud = async (req, res) => {
         //if (req.files.ine_fisico){
         console.log("Vienen de fisico")
     
-        var ine_fisico = req.files.ine_fisico[0].path; 
+        //var ine_fisico = req.files.ine_fisico[0].path; 
+        var ine_fisico = "pito"; 
         var buro_fisico = req.files.buro_fisico[0].path; 
         var comprobante_domicilio = req.files.comprobante_domicilio[0].path;
 
