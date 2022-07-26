@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const preSolicitudes = require('./routes/preSolicitudes.js');
 const multer = require('multer');
 
-
 // Crear la conexión a la BD
 const db = require('./config/db.js');
 
@@ -28,7 +27,7 @@ const app = express();
 //Configurar cambio de nombre de archivo subido
 const storage = multer.diskStorage({
     
-    destination: path.join(__dirname, '/public/pdf'), //configurar la ruta donde se guardará el archivo
+    destination: path.join(__dirname, './public/pdf'), //configurar la ruta donde se guardará el archivo
     //enconding,
     filename: (req, file, cb) => {
         /*cb(null, file.originalname) //Configurar el nombre del archivo a subirse */
@@ -40,7 +39,7 @@ const storage = multer.diskStorage({
 //Configurar Multer
 app.use(multer({
     storage : storage, //usar la configuración del storage para cambiar los nombres
-    dest: path.join(__dirname, '/public/pdf'), //configurar la ruta donde se guardará el archivo
+    dest: path.join(__dirname, './public/pdf'), //configurar la ruta donde se guardará el archivo
     //limits: {fileSize: 1000} //1B, 1000B = 1kB, 1000000 = 1Mb
     fileFilter : (req,file,cb) => {
         const filetypes = /pdf/;
