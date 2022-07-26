@@ -81,7 +81,7 @@ exports.crearSolicitud = async (req, res) => {
           var comprobante_domicilio = "";
    
           var situacion_fiscal = req.files.situacion_fiscal[0].path;
-          var ine_representante = req.files.ine_reprecentante[0].path;
+          var ine_reprecentante = req.files.ine_reprecentante[0].path;
           var buro_moral = req.files.buro_moral[0].path;
     
       }
@@ -121,11 +121,10 @@ exports.crearSolicitud = async (req, res) => {
         buro_fisico,
         comprobante_domicilio,
         situacion_fiscal,
-        ine_representante,
+        ine_reprecentante,
         buro_moral
-
     })        
-      
+      res.JSON({mgs: "Presolicitud hecha"});
     } catch (error) {
       res.json(error);
     }
