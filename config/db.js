@@ -8,7 +8,7 @@ const db = new Sequelize('railway', 'root', 'VeA8Osbg1TI8QrQDkV33', {
   port: '6304',
   operatorsAliases: 0,
   define: {
-      timestamps: false
+      timestamps: true
   },
   pool: {
     max: 5,
