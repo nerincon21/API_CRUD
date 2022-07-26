@@ -85,48 +85,50 @@ exports.crearSolicitud = async (req, res) => {
           var buro_moral = req.files.buro_moral[0].path;
     
       }
-  
-      Solicitudes.create({
-          cliente, 
-          
-          nombre : req.body.cliente.fisica.nombre, 
-          paterno : req.body.cliente.fisica.paterno, 
-          materno : req.body.cliente.fisica.materno, 
-          razon_social : req.body.cliente.moral.razon_social, 
-          representante : req.body.cliente.moral.representante, 
-          rfc : req.body.cliente.rfc, 
-          curp : req.body.cliente.fisica.curp, 
-          email: req.body.cliente.email, 
-          celular : req.body.cliente.celular, 
-          calle : req.body.domicilio.calle, 
-          interior : req.body.domicilio.interior, 
-          exterior : req.body.domicilio.exterior, 
-          colonia : req.body.domicilio.colonia, 
-          c_postal : req.body.domicilio.c_postal, 
-          poblacion : req.body.domicilio.poblacion, 
-          estado : req.body.domicilio.estado, 
-          municipio : req.body.domicilio.municipio,
-  
-          ine_fisico,
-          buro_fisico,
-          comprobante_domicilio,
-          situacion_fiscal,
-          ine_representante,
-          buro_moral
-  
-      })        
-  
+    
       //console.log();
       console.log(req.files);
 
-    res.json({msg: "Pre-Solicitud Creada Con Éxito"});
-
     } else {
       console.log("No estoy recibiendo datos");
-      //res.json({msg: "Error al crear Pre-Solicitud Creada Con Exito"});
+      res.json({msg: "Error al crear Pre-Solicitud Creada Con Exito"});
       return;
     }
 
+    try {
+      Solicitudes.create({
+        cliente, 
+        
+        nombre : req.body.cliente.fisica.nombre, 
+        paterno : req.body.cliente.fisica.paterno, 
+        materno : req.body.cliente.fisica.materno, 
+        razon_social : req.body.cliente.moral.razon_social, 
+        representante : req.body.cliente.moral.representante, 
+        rfc : req.body.cliente.rfc, 
+        curp : req.body.cliente.fisica.curp, 
+        email: req.body.cliente.email, 
+        celular : req.body.cliente.celular, 
+        calle : req.body.domicilio.calle, 
+        interior : req.body.domicilio.interior, 
+        exterior : req.body.domicilio.exterior, 
+        colonia : req.body.domicilio.colonia, 
+        c_postal : req.body.domicilio.c_postal, 
+        poblacion : req.body.domicilio.poblacion, 
+        estado : req.body.domicilio.estado, 
+        municipio : req.body.domicilio.municipio,
+
+        ine_fisico,
+        buro_fisico,
+        comprobante_domicilio,
+        situacion_fiscal,
+        ine_representante,
+        buro_moral
+
+    })        
+      
+    } catch (error) {
+      res.json(error);
+    }
   
 
 }
