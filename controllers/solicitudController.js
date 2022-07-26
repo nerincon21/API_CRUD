@@ -124,7 +124,7 @@ exports.crearSolicitud = async (req, res) => {
         ine_reprecentante,
         buro_moral
     })        
-      res.JSON({mgs: "Presolicitud hecha"});
+      res.json({mgs: "Presolicitud hecha"});
     } catch (error) {
       res.json(error);
     }
