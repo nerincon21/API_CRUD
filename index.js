@@ -46,7 +46,7 @@ app.use(multer({
         const extname = filetypes.test(path.extname(file.originalname));
         if (mimetype && extname) {
             return cb (null, true);            
-        }
+        }   
         cb("Error: La extensión del archivo no es válida");
     }
 }).fields([
