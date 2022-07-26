@@ -23,6 +23,41 @@ try {
 // Crear la app
 const app = express();
 
+//Configurar cambio de nombre de archivo subido
+const storage = multer.diskStorage({
+    
+    destination: path.join(__dirname, '/public/pdf'), //configurar la ruta donde se guardará el archivo
+    //enconding,
+    filename: (req, file, cb) => {
+        /*cb(null, file.originalname) //Configurar el nombre del archivo a subirse */
+        cb(null, Date.now() +'-' + Math.random()+ path.extname(file.originalname));
+
+    }
+})
+
+//Configurar Multer
+app.use(multer({
+    storage : storage, //usar la configuración del storage para cambiar los nombres
+    dest: path.join(__dirname, '/public/pdf'), //configurar la ruta donde se guardará el archivo
+    //limits: {fileSize: 1000} //1B, 1000B = 1kB, 1000000 = 1Mb
+    fileFilter : (req,file,cb) => {
+        const filetypes = /pdf/;
+        const mimetype = filetypes.test(file.mimetype);
+        const extname = filetypes.test(path.extname(file.originalname));
+        if (mimetype && extname) {
+            return cb (null, true);            
+        }
+        cb("Error: La extensión del archivo no es válida");
+    }
+}).fields([
+    {name: "ine_fisico", maxCount: 1},
+    {name: "buro_fisico", maxCount: 1},
+    {name: "comprobante_domicilio", maxCount: 1},
+    {name: "situacion_fiscal", maxCount: 1},
+    {name: "ine_reprecentante", maxCount: 1},
+    {name: "buro_moral", maxCount: 1}])
+    );
+
 // cargar los archivos estaticos
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname,'public')));
