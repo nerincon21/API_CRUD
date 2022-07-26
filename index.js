@@ -4,6 +4,8 @@ const path = require('path');
 //const router = require('./routes/preSolicitudes');
 const bodyParser = require('body-parser');
 const preSolicitudes = require('./routes/preSolicitudes.js');
+const multer = require('multer');
+
 
 // Crear la conexión a la BD
 const db = require('./config/db.js');
