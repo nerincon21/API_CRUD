@@ -53,6 +53,7 @@ exports.crearSolicitud = async (req, res) => {
       // leer los datos
       var cliente = req.body.cliente.tipo;
       cliente = cliente.substring(0, 1);
+      cliente.toLocaleLowerCase();
       
       console.log(req.body.cliente.tipo);
       console.log(req.body.cliente.rfc);
