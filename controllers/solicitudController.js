@@ -39,9 +39,113 @@ exports.test = (req, res) =>{
   });
 }
 
+exports.crearSolicitudPruebas = async (req, res) => {
+  console.log('<*--- Estamos en Crear (De Pruebas) ---*>');
+  console.log('<*--- INICIO DEL req.body ---*>');
+  console.log(req.body); //Bandera para los datos
+  console.log('<*--- FIN DEL req.files ---*>');
+  console.log('<*--- INICIO DEL req.files ---*>');
+  console.log(req.files); //Bandera para los datos
+  console.log('<*--- FIN DEL req.files ---*>');
+
+
+
+/*   console.log('<*--- Vamos a entrar a la validación de si viene algo  ---*>');
+  if (!(JSON.stringify(req.body)=='{}')) { //Si no se leen datos 
+
+    console.log("<----Leí los datos--->");
+    console.log(req.body);
+    console.log(req.files);
+    
+    
+    // leer los datos
+    var cliente = req.body.cliente.tipo;
+    cliente = cliente.substring(0, 1);
+    cliente.toLocaleLowerCase();
+    
+    console.log(req.body.cliente.tipo);
+    console.log(req.body.cliente.rfc);
+
+    if (cliente == "f") {
+
+      //if (req.files.ine_fisico){
+      console.log("Vienen de fisico")
+  
+      //var ine_fisico = req.files.ine_fisico[0].path; 
+      var ine_fisico = req.files.ine_fisico[0].path; 
+      var buro_fisico = req.files.buro_fisico[0].path; 
+      var comprobante_domicilio = req.files.comprobante_domicilio[0].path;
+
+      var situacion_fiscal = "";
+      var ine_reprecentante = "";
+      var buro_moral = "";
+  
+        
+    } else {
+  
+        console.log("Vienen de moral")
+        
+        var ine_fisico = "";
+        var buro_fisico = "";
+        var comprobante_domicilio = "";
+ 
+        var situacion_fiscal = req.files.situacion_fiscal[0].path;
+        var ine_reprecentante = req.files.ine_reprecentante[0].path;
+        var buro_moral = req.files.buro_moral[0].path;
+  
+    }
+  
+    //console.log();
+    console.log(req.files);
+
+  } else {
+    console.log("No estoy recibiendo datos");
+    res.json({msg: "ERROR al crear Pre-Solicitud Creada Con Exito"});
+    return;
+  } */
+
+/*   try {
+    Solicitudes.create({
+      cliente, 
+      
+      nombre : req.body.cliente.fisica.nombre, 
+      paterno : req.body.cliente.fisica.paterno, 
+      materno : req.body.cliente.fisica.materno, 
+      razon_social : req.body.cliente.moral.razon_social, 
+      representante : req.body.cliente.moral.representante, 
+      rfc : req.body.cliente.rfc, 
+      curp : req.body.cliente.fisica.curp, 
+      email: req.body.cliente.email, 
+      celular : req.body.cliente.celular, 
+      calle : req.body.domicilio.calle, 
+      interior : req.body.domicilio.interior, 
+      exterior : req.body.domicilio.exterior, 
+      colonia : req.body.domicilio.colonia, 
+      c_postal : req.body.domicilio.c_postal, 
+      poblacion : req.body.domicilio.poblacion, 
+      estado : req.body.domicilio.estado, 
+      municipio : req.body.domicilio.municipio,
+
+      ine_fisico,
+      buro_fisico,
+      comprobante_domicilio,
+      situacion_fiscal,
+      ine_reprecentante,
+      buro_moral
+  })        
+    res.json({mgs: "Presolicitud hecha"});
+  } catch (error) {
+    res.json(error);
+  } */
+
+
+}
+
 exports.crearSolicitud = async (req, res) => {
     console.log('<*---Crear---*>');
     console.log(req.body); //Bandera para los datos
+
+
 
     if (!(JSON.stringify(req.body)=='{}')) { //Si no se leen datos 
 
