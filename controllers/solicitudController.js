@@ -40,14 +40,15 @@ exports.test = (req, res) =>{
 }
 
 exports.crearSolicitudPruebas = async (req, res) => {
-  console.log('<*--- Estamos en Crear (De Pruebas) ---*>');
-  console.log('<*--- INICIO DEL req.body ---*>');
+  console.log('<*--------- Estamos en Crear (De Pruebas) ---------*>');
+  console.log('<*--------- INICIO DEL req.body ---------*>');
   console.log(req.body); //Bandera para los datos
-  console.log('<*--- FIN DEL req.files ---*>');
-  console.log('<*--- INICIO DEL req.files ---*>');
+  console.log('<*--------- FIN DEL req.body ---------*>');
+  console.log('<*--------- INICIO DEL req.files ---------*>');
   console.log(req.files); //Bandera para los datos
-  console.log('<*--- FIN DEL req.files ---*>');
+  console.log('<*--------- FIN DEL req.files ---------*>');
 
+  res.json({msg: "Ya díganle que revise la consola"});
 
 
 /*   console.log('<*--- Vamos a entrar a la validación de si viene algo  ---*>');
