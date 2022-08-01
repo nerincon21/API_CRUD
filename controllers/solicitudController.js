@@ -63,12 +63,12 @@ exports.crearSolicitud = async (req, res) => {
         console.log("Vienen de fisico")
     
         //var ine_fisico = req.files.ine_fisico[0].path; 
-        var ine_fisico = "pito"; 
+        var ine_fisico = req.files.ine_fisico[0].path; 
         var buro_fisico = req.files.buro_fisico[0].path; 
         var comprobante_domicilio = req.files.comprobante_domicilio[0].path;
 
         var situacion_fiscal = "";
-        var ine_representante = "";
+        var ine_reprecentante = "";
         var buro_moral = "";
     
           
@@ -91,7 +91,7 @@ exports.crearSolicitud = async (req, res) => {
 
     } else {
       console.log("No estoy recibiendo datos");
-      res.json({msg: "Error al crear Pre-Solicitud Creada Con Exito"});
+      res.json({msg: "ERROR al crear Pre-Solicitud Creada Con Exito"});
       return;
     }
 
