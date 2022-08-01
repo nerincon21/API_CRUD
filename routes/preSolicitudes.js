@@ -14,7 +14,7 @@ const solicitudController = require('../controllers/solicitudController');
     //añadir solicitud
     router.post('/solicitudes', solicitudController.crearSolicitud);
 
-    router.post('/solicitudes/pruebas', solicitudController.crearSolicitud);
+    router.post('/solicitudes/pruebas', solicitudController.crearSolicitudPruebas);
 
     // editar solicitudes
     router.get('/solicitud_edit/:id', 
