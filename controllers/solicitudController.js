@@ -39,7 +39,7 @@ exports.test = (req, res) =>{
   });
 }
 
-exports.crearSolicitudPruebas = (req, res) => {
+exports.crearSolicitudPruebas = async (req, res) => {
   console.log('<*--------- Estamos en Crear (De Pruebas) ---------*>');
   console.log('<*--------- INICIO DEL req.body ---------*>');
   console.log(req.body); //Bandera para los datos
