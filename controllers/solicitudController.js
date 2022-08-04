@@ -62,7 +62,7 @@ exports.crearSolicitud = async (req, res) => {
 
       console.log("<----Leí los datos--->");
       console.log(req.body);
-      //console.log(req.files);
+      console.log(req.files);
       
       
       // leer los datos
