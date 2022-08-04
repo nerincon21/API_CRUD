@@ -62,18 +62,19 @@ exports.crearSolicitud = async (req, res) => {
 
       console.log("<----Leí los datos--->");
       console.log(req.body);
-      console.log(req.files);
+      //console.log(req.files);
       
       
       // leer los datos
-      var cliente_tipo = req.body.cliente_tipo;
-      cliente_tipo = cliente_tipo.substring(0, 1);
-      cliente_tipo.toLowerCase();
+      req.body.cliente_tipo = req.body.cliente_tipo.substring(0, 1);
+      req.body.cliente_tipo= req.body.cliente_tipo.toLowerCase();
       
       console.log(req.body.cliente_tipo);
       console.log(req.body.cliente_rfc);
+      console.log(req.files.documentacion_buro_fisico[0].path);
 
-      if (cliente_tipo == "f") {
+
+      if (req.body.cliente_tipo == "f") {
 
         console.log("Vienen de fisico")
     
@@ -89,7 +90,7 @@ exports.crearSolicitud = async (req, res) => {
           
       } else {
     
-          console.log("Vienen de moral")
+          console.log("<---Vienen de moral--->")
           
           var documentacion_ine_fisico = "";
           var documentacion_buro_fisico = "";
@@ -102,7 +103,7 @@ exports.crearSolicitud = async (req, res) => {
       }
     
       //console.log();
-      console.log(req.files);
+      //console.log(req.files);
 
     } else {
       console.log("No estoy recibiendo datos");
@@ -111,26 +112,27 @@ exports.crearSolicitud = async (req, res) => {
     }
 
     try {
+      console.log("Vamos a crear un registro");
       await Solicitudes.create({
-        cliente_tipo, 
         
+        cliente_tipo : req.body.cliente_tipo,
         cliente_nombre : req.body.cliente_nombre, 
-        cliente_paterno : req.body.cliente.fisica.paterno, 
-        cliente_materno : req.body.cliente.fisica.materno, 
-        cliente_razon_social : req.body.cliente.moral.razon_social, 
-        cliente_representante : req.body.cliente.moral.representante, 
-        cliente_rfc : req.body.cliente.rfc, 
-        cliente_curp : req.body.cliente.fisica.curp, 
-        cliente_email: req.body.cliente.email, 
-        cliente_celular : req.body.cliente.celular, 
-        domicilio_calle : req.body.domicilio.calle, 
-        domicilio_interior : req.body.domicilio.interior, 
-        domicilio_exterior : req.body.domicilio.exterior, 
-        domicilio_colonia : req.body.domicilio.colonia, 
-        domicilio_c_postal : req.body.domicilio.c_postal, 
-        domicilio_poblacion : req.body.domicilio.poblacion, 
-        domicilio_estado : req.body.domicilio.estado, 
-        domicilio_municipio : req.body.domicilio.municipio,
+        cliente_paterno : req.body.cliente_paterno, 
+        cliente_materno : req.body.cliente_materno, 
+        cliente_razon_social : req.body.cliente_razon_social, 
+        cliente_representante : req.body.cliente_representante, 
+        cliente_rfc : req.body.cliente_rfc, 
+        cliente_curp : req.body.cliente_curp, 
+        cliente_email: req.body.cliente_email, 
+        cliente_celular : req.body.cliente_celular, 
+        domicilio_calle : req.body.domicilio_calle, 
+        domicilio_interior : req.body.domicilio_interior, 
+        domicilio_exterior : req.body.domicilio_exterior, 
+        domicilio_colonia : req.body.domicilio_colonia, 
+        domicilio_c_postal : req.body.domicilio_c_postal, 
+        domicilio_poblacion : req.body.domicilio_poblacion, 
+        domicilio_estado : req.body.domicilio_estado, 
+        domicilio_municipio : req.body.domicilio_municipio,
 
         documentacion_ine_fisico,
         documentacion_buro_fisico,
@@ -141,7 +143,8 @@ exports.crearSolicitud = async (req, res) => {
     })        
       res.json({mgs: "Presolicitud hecha"});
     } catch (error) {
-      res.json(error);
+      res.json(error + "Algo salió mal");
+
     }
   
 
