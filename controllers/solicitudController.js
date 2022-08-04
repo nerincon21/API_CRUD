@@ -156,21 +156,20 @@ exports.crearSolicitud = async (req, res) => {
       
       
       // leer los datos
-      var cliente = req.body.cliente.tipo;
-      cliente = cliente.substring(0, 1);
-      cliente.toLocaleLowerCase();
+      var cliente_tipo = req.body.cliente_tipo;
+      cliente_tipo = cliente.substring(0, 1);
+      cliente_tipo.toLowerCase();
       
-      console.log(req.body.cliente.tipo);
-      console.log(req.body.cliente.rfc);
+      console.log(req.body.cliente_tipo);
+      console.log(req.body.cliente_rfc);
 
       if (cliente == "f") {
 
-        //if (req.files.ine_fisico){
         console.log("Vienen de fisico")
     
         //var ine_fisico = req.files.ine_fisico[0].path; 
-        var ine_fisico = req.files.ine_fisico[0].path; 
-        var buro_fisico = req.files.buro_fisico[0].path; 
+        var documentacion_ine_fisico = req.files.documentacion_ine_fisico[0].path; 
+        var documentacion_buro_fisico = req.files.documentacion_buro_fisico[0].path; 
         var comprobante_domicilio = req.files.comprobante_domicilio[0].path;
 
         var situacion_fiscal = "";
@@ -182,8 +181,8 @@ exports.crearSolicitud = async (req, res) => {
     
           console.log("Vienen de moral")
           
-          var ine_fisico = "";
-          var buro_fisico = "";
+          var documentacion_ine_fisico = "";
+          var documentacion_buro_fisico = "";
           var comprobante_domicilio = "";
    
           var situacion_fiscal = req.files.situacion_fiscal[0].path;
@@ -197,34 +196,34 @@ exports.crearSolicitud = async (req, res) => {
 
     } else {
       console.log("No estoy recibiendo datos");
-      res.json({msg: "ERROR al crear Pre-Solicitud Creada Con Exito"});
+      res.json({msg: "ERROR al crear Pre-Solicitud"});
       return;
     }
 
     try {
-      Solicitudes.create({
-        cliente, 
+      await Solicitudes.create({
+        cliente_tipo, 
         
-        nombre : req.body.cliente.fisica.nombre, 
-        paterno : req.body.cliente.fisica.paterno, 
-        materno : req.body.cliente.fisica.materno, 
-        razon_social : req.body.cliente.moral.razon_social, 
-        representante : req.body.cliente.moral.representante, 
-        rfc : req.body.cliente.rfc, 
-        curp : req.body.cliente.fisica.curp, 
-        email: req.body.cliente.email, 
-        celular : req.body.cliente.celular, 
-        calle : req.body.domicilio.calle, 
-        interior : req.body.domicilio.interior, 
-        exterior : req.body.domicilio.exterior, 
-        colonia : req.body.domicilio.colonia, 
-        c_postal : req.body.domicilio.c_postal, 
-        poblacion : req.body.domicilio.poblacion, 
-        estado : req.body.domicilio.estado, 
-        municipio : req.body.domicilio.municipio,
+        cliente_nombre : req.body.cliente_nombre, 
+        cliente_paterno : req.body.cliente.fisica.paterno, 
+        cliente_materno : req.body.cliente.fisica.materno, 
+        cliente_razon_social : req.body.cliente.moral.razon_social, 
+        cliente_representante : req.body.cliente.moral.representante, 
+        cliente_rfc : req.body.cliente.rfc, 
+        cliente_curp : req.body.cliente.fisica.curp, 
+        cliente_email: req.body.cliente.email, 
+        cliente_celular : req.body.cliente.celular, 
+        domicilio_calle : req.body.domicilio.calle, 
+        domicilio_interior : req.body.domicilio.interior, 
+        domicilio_exterior : req.body.domicilio.exterior, 
+        domicilio_colonia : req.body.domicilio.colonia, 
+        domicilio_c_postal : req.body.domicilio.c_postal, 
+        domicilio_poblacion : req.body.domicilio.poblacion, 
+        domicilio_estado : req.body.domicilio.estado, 
+        domicilio_municipio : req.body.domicilio.municipio,
 
-        ine_fisico,
-        buro_fisico,
+        documentacion_ine_fisico,
+        documentacion_buro_fisico,
         comprobante_domicilio,
         situacion_fiscal,
         ine_reprecentante,

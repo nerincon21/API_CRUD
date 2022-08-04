@@ -10,23 +10,23 @@ const Solicitudes = db.define('solicitudes', {
         autoIncrement: true
     }, 
 
-    cliente :  Sequelize.STRING(10),
+    cliente_tipo :  Sequelize.STRING(10),
 
 
-    nombre :  {  
+    cliente_nombre :  {  
         type: Sequelize.STRING(100),
         defaultValue: null
     },
 
 
-    paterno :  {
+    cliente_paterno :  {
         
         type: Sequelize.STRING(100),
         defaultValue: null
     },
 
 
-    materno :  {
+    cliente_materno :  {
         
         type: Sequelize.STRING(100),
         defaultValue: null
@@ -34,107 +34,107 @@ const Solicitudes = db.define('solicitudes', {
 
     
     //Persona Moral
-    razon_social :  {
+    cliente_razon_social :  {
         
         type: Sequelize.STRING(100),
         defaultValue: null
     },
 
-    representante : {
+    cliente_representante : {
         
         type: Sequelize.STRING(100),
         defaultValue: null
     },
 
 
-    rfc :  {
+    cliente_rfc :  {
         
         type: Sequelize.STRING(13),
         defaultValue: null
     },
 
 
-    curp :  {
+    cliente_curp :  {
         
         type: Sequelize.STRING(18),
         defaultValue: null
     },
 
 
-    email:  {
+    cliente_email:  {
         
         type: Sequelize.STRING(100),
         defaultValue: null
     },
 
 
-    celular:  {
+    cliente_celular:  {
         
         type: Sequelize.BIGINT(20),
         defaultValue: null
     },
 
     //Domicilio
-    calle : {
+    domicilio_calle : {
         
         type: Sequelize.STRING(100),
         allowNull: false, 
     },
 
 
-    interior : {
+    domicilio_interior : {
         
         type: Sequelize.INTEGER(6),
         allowNull: false, 
     },
 
 
-    exterior : {
+    domicilio_exterior : {
         
         type: Sequelize.STRING(10),
         defaultValue: null
     },
 
 
-    colonia : {
+    domicilio_colonia : {
         
         type: Sequelize.STRING(50),
         allowNull: false, 
     },
 
 
-    c_postal : {
+    domicilio_c_postal : {
         
         type: Sequelize.INTEGER(5),
         allowNull: false, 
     },
 
 
-    poblacion : {
+    domicilio_poblacion : {
         
         type: Sequelize.STRING(100),
         allowNull: false, 
     },
 
 
-    estado : {
+    domicilio_estado : {
         
         type: Sequelize.STRING(50),
         allowNull: false, 
     },
 
 
-    municipio : {
+    domicilio_municipio : {
         
         type: Sequelize.STRING(100),
         allowNull: false 
     },
-    ine_fisico:{
+    documentacion_ine_fisico:{
         type: Sequelize.STRING(100),
         defaultValue: null
     },
 
-    buro_fisico:{
+    documentacion_buro_fisico:{
         type: Sequelize.STRING(100),
         defaultValue: null
     },
