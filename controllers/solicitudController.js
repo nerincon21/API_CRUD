@@ -132,14 +132,14 @@ exports.crearSolicitud = async (req, res) => {
         domicilio_c_postal : req.body.domicilio_c_postal, 
         domicilio_poblacion : req.body.domicilio_poblacion, 
         domicilio_estado : req.body.domicilio_estado, 
-        domicilio_municipio : req.body.domicilio_municipio,
+        domicilio_municipio : req.body.domicilio_municipio
 
-        documentacion_ine_fisico,
+/*         documentacion_ine_fisico,
         documentacion_buro_fisico,
         comprobante_domicilio,
         situacion_fiscal,
         ine_reprecentante,
-        buro_moral
+        buro_moral */
     })        
       res.json({mgs: "Presolicitud hecha"});
     } catch (error) {
