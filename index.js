@@ -51,8 +51,8 @@ app.use(multer({
         cb("Error: La extensión del archivo no es válida");
     }
 }).fields([
-    {name: "ine_fisico", maxCount: 1},
-    {name: "buro_fisico", maxCount: 1},
+    {name: "documentacion_ine_fisico", maxCount: 1},
+    {name: "documentacion_buro_fisico", maxCount: 1},
     {name: "comprobante_domicilio", maxCount: 1},
     {name: "situacion_fiscal", maxCount: 1},
     {name: "ine_reprecentante", maxCount: 1},
