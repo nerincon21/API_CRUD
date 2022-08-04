@@ -73,7 +73,7 @@ exports.crearSolicitud = async (req, res) => {
       console.log(req.body.cliente_tipo);
       console.log(req.body.cliente_rfc);
 
-      if (cliente == "f") {
+      if (cliente_tipo == "f") {
 
         console.log("Vienen de fisico")
     
