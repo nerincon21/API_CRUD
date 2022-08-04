@@ -71,10 +71,10 @@ exports.crearSolicitud = async (req, res) => {
       
       console.log(req.body.cliente_tipo);
       console.log(req.body.cliente_rfc);
-      console.log(req.files.documentacion_buro_fisico[0].path);
+      //console.log(req.files.documentacion_buro_fisico[0].path);
 
 
-      if (req.body.cliente_tipo == "f") {
+/*       if (req.body.cliente_tipo == "f") {
 
         console.log("Vienen de fisico")
     
@@ -100,7 +100,7 @@ exports.crearSolicitud = async (req, res) => {
           var ine_reprecentante = req.files.ine_reprecentante[0].path;
           var buro_moral = req.files.buro_moral[0].path;
     
-      }
+      } */
     
       //console.log();
       //console.log(req.files);
