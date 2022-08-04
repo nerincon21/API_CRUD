@@ -242,7 +242,7 @@ exports.solicitudesShow = async (req, res) => {
   console.log("Estás en solicitudes show");
   
   const solicitudesPromise = Solicitudes.findAll({
-      attributes: ['id', 'cliente','nombre','paterno','materno','rfc','curp','email','celular']   
+      attributes: ['id', 'cliente_tipo','cliente_nombre','cliente_paterno','cliente_materno','cliente_rfc','cliente_curp','cliente_email','cliente_celular']   
     });
 
   const [solicitudes] = await Promise.all([solicitudesPromise]);
