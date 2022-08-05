@@ -74,7 +74,7 @@ exports.crearSolicitud = async (req, res) => {
       //console.log(req.files.documentacion_buro_fisico[0].path);
 
 
-/*       if (req.body.cliente_tipo == "f") {
+      if (req.body.cliente_tipo == "f") {
 
         console.log("Vienen de fisico")
     
@@ -100,7 +100,7 @@ exports.crearSolicitud = async (req, res) => {
           var ine_reprecentante = req.files.ine_reprecentante[0].path;
           var buro_moral = req.files.buro_moral[0].path;
     
-      } */
+      }
     
       //console.log();
       //console.log(req.files);
@@ -132,14 +132,14 @@ exports.crearSolicitud = async (req, res) => {
         domicilio_c_postal : req.body.domicilio_c_postal, 
         domicilio_poblacion : req.body.domicilio_poblacion, 
         domicilio_estado : req.body.domicilio_estado, 
-        domicilio_municipio : req.body.domicilio_municipio
+        domicilio_municipio : req.body.domicilio_municipio,
 
-/*         documentacion_ine_fisico,
+        documentacion_ine_fisico,
         documentacion_buro_fisico,
         comprobante_domicilio,
         situacion_fiscal,
         ine_reprecentante,
-        buro_moral */
+        buro_moral
     })        
       res.json({mgs: "Presolicitud hecha"});
     } catch (error) {
