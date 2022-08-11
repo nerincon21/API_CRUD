@@ -61,6 +61,7 @@ exports.crearSolicitud = async (req, res) => {
     if (!(JSON.stringify(req.body)=='{}')) { //Si no se leen datos 
 
       console.log("<----Leí los datos--->");
+      console.log(req);
       console.log(req.body);
       console.log(req.files);
       
@@ -111,41 +112,41 @@ exports.crearSolicitud = async (req, res) => {
       return;
     }
 
-    try {
-      console.log("Vamos a crear un registro");
-      await Solicitudes.create({
+//     try {
+//       console.log("Vamos a crear un registro");
+//       await Solicitudes.create({
         
-        cliente_tipo : req.body.cliente_tipo,
-        cliente_nombre : req.body.cliente_nombre, 
-        cliente_paterno : req.body.cliente_paterno, 
-        cliente_materno : req.body.cliente_materno, 
-        cliente_razon_social : req.body.cliente_razon_social, 
-        cliente_representante : req.body.cliente_representante, 
-        cliente_rfc : req.body.cliente_rfc, 
-        cliente_curp : req.body.cliente_curp, 
-        cliente_email: req.body.cliente_email, 
-        cliente_celular : req.body.cliente_celular, 
-        domicilio_calle : req.body.domicilio_calle, 
-        domicilio_interior : req.body.domicilio_interior, 
-        domicilio_exterior : req.body.domicilio_exterior, 
-        domicilio_colonia : req.body.domicilio_colonia, 
-        domicilio_c_postal : req.body.domicilio_c_postal, 
-        domicilio_poblacion : req.body.domicilio_poblacion, 
-        domicilio_estado : req.body.domicilio_estado, 
-        domicilio_municipio : req.body.domicilio_municipio,
+//         cliente_tipo : req.body.cliente_tipo,
+//         cliente_nombre : req.body.cliente_nombre, 
+//         cliente_paterno : req.body.cliente_paterno, 
+//         cliente_materno : req.body.cliente_materno, 
+//         cliente_razon_social : req.body.cliente_razon_social, 
+//         cliente_representante : req.body.cliente_representante, 
+//         cliente_rfc : req.body.cliente_rfc, 
+//         cliente_curp : req.body.cliente_curp, 
+//         cliente_email: req.body.cliente_email, 
+//         cliente_celular : req.body.cliente_celular, 
+//         domicilio_calle : req.body.domicilio_calle, 
+//         domicilio_interior : req.body.domicilio_interior, 
+//         domicilio_exterior : req.body.domicilio_exterior, 
+//         domicilio_colonia : req.body.domicilio_colonia, 
+//         domicilio_c_postal : req.body.domicilio_c_postal, 
+//         domicilio_poblacion : req.body.domicilio_poblacion, 
+//         domicilio_estado : req.body.domicilio_estado, 
+//         domicilio_municipio : req.body.domicilio_municipio,
 
-/*         documentacion_ine_fisico,
-        documentacion_buro_fisico,
-        comprobante_domicilio,
-        situacion_fiscal,
-        ine_reprecentante,
-        buro_moral */
-    })        
-      res.json({mgs: "Presolicitud hecha"});
-    } catch (error) {
-      res.json(error + "Algo salió mal");
+// /*         documentacion_ine_fisico,
+//         documentacion_buro_fisico,
+//         comprobante_domicilio,
+//         situacion_fiscal,
+//         ine_reprecentante,
+//         buro_moral */
+//     })        
+//       res.json({mgs: "Presolicitud hecha"});
+//     } catch (error) {
+//       res.json(error + "Algo salió mal");
 
-    }
+//     }
   
 
 }
