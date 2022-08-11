@@ -68,9 +68,9 @@ app.use(express.static(path.join(__dirname,'public')));
 app.set('view engine' ,'ejs');
 
 // habilitar bodyParser para leer datos del formulario
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/json', limit: "25mb" }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
