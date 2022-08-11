@@ -73,9 +73,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: 'application/json' }));
 
 
-//configurar limite de payload
-app.use(express.bodyParser({limit: '50mb'}));
-
 
 app.use(cors());
 
