@@ -61,9 +61,8 @@ exports.crearSolicitud = async (req, res) => {
     //if (!(JSON.stringify(req.body)=='{}')) { //Si no se leen datos 
 
       console.log("<----Leí los datos--->");
-      //console.log(req);
+      console.log(req);
       console.log(req.body);
-      console.log(req.files);
       
       
       // leer los datos
