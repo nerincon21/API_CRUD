@@ -58,7 +58,7 @@ exports.crearSolicitud = async (req, res) => {
 
 
 
-    if (!(JSON.stringify(req.body)=='{}')) { //Si no se leen datos 
+    //if (!(JSON.stringify(req.body)=='{}')) { //Si no se leen datos 
 
       console.log("<----Leí los datos--->");
       console.log(req);
@@ -106,11 +106,11 @@ exports.crearSolicitud = async (req, res) => {
       //console.log();
       //console.log(req.files);
 
-    } else {
-      console.log("No estoy recibiendo datos");
-      res.json({msg: "ERROR al crear Pre-Solicitud"});
-      return;
-    }
+    // } else {
+    //   console.log("No estoy recibiendo datos");
+    //   res.json({msg: "ERROR al crear Pre-Solicitud"});
+    //   return;
+    // }
 
 //     try {
 //       console.log("Vamos a crear un registro");
