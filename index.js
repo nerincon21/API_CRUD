@@ -23,8 +23,6 @@ try {
 
 // Crear la app
 const app = express();
-app.use(express.json({limit: '25mb'}));
-app.use(express.urlencoded({limit: '25mb'}));
 
 //Configurar cambio de nombre de archivo subido
 const storage = multer.diskStorage({
@@ -73,6 +71,11 @@ app.set('view engine' ,'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: 'application/json' }));
+
+
+//configurar limite de payload
+app.use(express.bodyParser({limit: '50mb'}));
+
 
 app.use(cors());
 
