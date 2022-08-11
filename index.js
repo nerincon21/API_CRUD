@@ -70,10 +70,10 @@ app.set('view engine' ,'ejs');
 // habilitar bodyParser para leer datos del formulario
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json({ type: 'application/json' }));
+app.use(bodyParser.json({ type: 'application/json', limit: "25mb" }));
 
-//configurar limite de
-app.use(express.bodyParser({limit: '50mb'}));
+//configurar limite de payload
+
 
 
 app.use(cors());
