@@ -26,7 +26,6 @@ const app = express();
 
 //Configurar cambio de nombre de archivo subido
 const storage = multer.diskStorage({
-    
     destination: path.join(__dirname, './public/pdf'), //configurar la ruta donde se guardará el archivo
     //enconding,
     filename: (req, file, cb) => {
