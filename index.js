@@ -39,7 +39,7 @@ const storage = multer.diskStorage({
 app.use(multer({
     storage : storage, //usar la configuración del storage para cambiar los nombres
     dest: path.join(__dirname, './public/pdf'), //configurar la ruta donde se guardará el archivo
-    //limits: {fileSize: 1000} //1B, 1000B = 1kB, 1000000 = 1Mb
+    // limits: {fileSize: 25000000}, //1B, 1000B = 1kB, 1000000 = 1Mb
     fileFilter : (req,file,cb) => {
         const filetypes = /pdf/;
         const mimetype = filetypes.test(file.mimetype);
