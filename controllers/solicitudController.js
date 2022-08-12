@@ -85,9 +85,9 @@ exports.crearSolicitud = async (req, res) => {
       if (formu.cliente_tipo == "f") {
         console.log("Vienen de fisico")
         //var ine_fisico = arch.ine_fisico[0].path; 
-        var documentacion_ine_fisico = arch.documentacion_ine_fisico[0].path; 
-        var documentacion_buro_fisico = arch.documentacion_buro_fisico[0].path; 
-        var comprobante_domicilio = arch.comprobante_domicilio[0].path;
+        var documentacion_ine_fisico = arch.documentacion_ine_fisico.path; 
+        var documentacion_buro_fisico = arch.documentacion_buro_fisico.path; 
+        var comprobante_domicilio = arch.comprobante_domicilio.path;
 
         var situacion_fiscal = "";
         var ine_reprecentante = "";
@@ -99,9 +99,9 @@ exports.crearSolicitud = async (req, res) => {
           var documentacion_buro_fisico = "";
           var comprobante_domicilio = "";
    
-          var situacion_fiscal = arch.situacion_fiscal[0].path;
-          var ine_reprecentante = arch.ine_reprecentante[0].path;
-          var buro_moral = arch.buro_moral[0].path;
+          var situacion_fiscal = arch.situacion_fiscal.path;
+          var ine_reprecentante = arch.ine_reprecentante.path;
+          var buro_moral = arch.buro_moral.path;
       }
       //console.log();
       console.log(arch);
