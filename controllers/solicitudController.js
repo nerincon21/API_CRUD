@@ -56,99 +56,89 @@ exports.crearSolicitud = async (req, res) => {
     console.log('<*---Crear---*>');
     console.log(req.body); //Bandera para los datos
 
+    var formu = req.body.formulario;
+    var arch = req.body.archivos;
 
 
-    //if (!(JSON.stringify(req.body)=='{}')) { //Si no se leen datos 
+    if (!(JSON.stringify(formu)=='{}')) { //Si no se leen datos 
 
       console.log("<----Leí los datos--->");
-      console.log(req);
-      console.log(req.body);
-      //console.log(req.files);
+      //console.log(req);
+      console.log(formu);
+      console.log(arch);
       
+
       
       // leer los datos
-      req.body.cliente_tipo = req.body.cliente_tipo.substring(0, 1);
-      req.body.cliente_tipo= req.body.cliente_tipo.toLowerCase();
+      formu.cliente_tipo = formu.cliente_tipo.substring(0, 1);
+      formu.cliente_tipo= formu.cliente_tipo.toLowerCase();
       
-      console.log(req.body.cliente_tipo);
-      console.log(req.body.cliente_rfc);
-      //console.log(req.files.documentacion_buro_fisico[0].path);
+      console.log(formu.cliente_tipo);
+      console.log(formu.cliente_rfc);
+      console.log(arch.documentacion_buro_fisico[0].path);
 
-
-/*       if (req.body.cliente_tipo == "f") {
-
+      if (formu.cliente_tipo == "f") {
         console.log("Vienen de fisico")
-    
-        //var ine_fisico = req.files.ine_fisico[0].path; 
-        var documentacion_ine_fisico = req.files.documentacion_ine_fisico[0].path; 
-        var documentacion_buro_fisico = req.files.documentacion_buro_fisico[0].path; 
-        var comprobante_domicilio = req.files.comprobante_domicilio[0].path;
+        //var ine_fisico = arch.ine_fisico[0].path; 
+        var documentacion_ine_fisico = arch.documentacion_ine_fisico[0].path; 
+        var documentacion_buro_fisico = arch.documentacion_buro_fisico[0].path; 
+        var comprobante_domicilio = arch.comprobante_domicilio[0].path;
 
         var situacion_fiscal = "";
         var ine_reprecentante = "";
         var buro_moral = "";
-    
-          
       } else {
-    
           console.log("<---Vienen de moral--->")
           
           var documentacion_ine_fisico = "";
           var documentacion_buro_fisico = "";
           var comprobante_domicilio = "";
    
-          var situacion_fiscal = req.files.situacion_fiscal[0].path;
-          var ine_reprecentante = req.files.ine_reprecentante[0].path;
-          var buro_moral = req.files.buro_moral[0].path;
-    
-      } */
-    
+          var situacion_fiscal = arch.situacion_fiscal[0].path;
+          var ine_reprecentante = arch.ine_reprecentante[0].path;
+          var buro_moral = arch.buro_moral[0].path;
+      }
       //console.log();
-      //console.log(req.files);
+      console.log(arch);
+    } else {
+      console.log("No estoy recibiendo datos");
+      res.json({msg: "ERROR al crear Pre-Solicitud"});
+    }
 
-    // } else {
-    //   console.log("No estoy recibiendo datos");
-    //   res.json({msg: "ERROR al crear Pre-Solicitud"});
-    //   return;
-    // }
-
-//     try {
-//       console.log("Vamos a crear un registro");
-//       await Solicitudes.create({
+    try {
+      console.log("Vamos a crear un registro");
+      await Solicitudes.create({
         
-//         cliente_tipo : req.body.cliente_tipo,
-//         cliente_nombre : req.body.cliente_nombre, 
-//         cliente_paterno : req.body.cliente_paterno, 
-//         cliente_materno : req.body.cliente_materno, 
-//         cliente_razon_social : req.body.cliente_razon_social, 
-//         cliente_representante : req.body.cliente_representante, 
-//         cliente_rfc : req.body.cliente_rfc, 
-//         cliente_curp : req.body.cliente_curp, 
-//         cliente_email: req.body.cliente_email, 
-//         cliente_celular : req.body.cliente_celular, 
-//         domicilio_calle : req.body.domicilio_calle, 
-//         domicilio_interior : req.body.domicilio_interior, 
-//         domicilio_exterior : req.body.domicilio_exterior, 
-//         domicilio_colonia : req.body.domicilio_colonia, 
-//         domicilio_c_postal : req.body.domicilio_c_postal, 
-//         domicilio_poblacion : req.body.domicilio_poblacion, 
-//         domicilio_estado : req.body.domicilio_estado, 
-//         domicilio_municipio : req.body.domicilio_municipio,
+        cliente_tipo : formu.cliente_tipo,
+        cliente_nombre : formu.cliente_nombre, 
+        cliente_paterno : formu.cliente_paterno, 
+        cliente_materno : formu.cliente_materno, 
+        cliente_razon_social : formu.cliente_razon_social, 
+        cliente_representante : formu.cliente_representante, 
+        cliente_rfc : formu.cliente_rfc, 
+        cliente_curp : formu.cliente_curp, 
+        cliente_email: formu.cliente_email, 
+        cliente_celular : formu.cliente_celular, 
+        domicilio_calle : formu.domicilio_calle, 
+        domicilio_interior : formu.domicilio_interior, 
+        domicilio_exterior : formu.domicilio_exterior, 
+        domicilio_colonia : formu.domicilio_colonia, 
+        domicilio_c_postal : formu.domicilio_c_postal, 
+        domicilio_poblacion : formu.domicilio_poblacion, 
+        domicilio_estado : formu.domicilio_estado, 
+        domicilio_municipio : formu.domicilio_municipio,
 
-// /*         documentacion_ine_fisico,
-//         documentacion_buro_fisico,
-//         comprobante_domicilio,
-//         situacion_fiscal,
-//         ine_reprecentante,
-//         buro_moral */
-//     })        
-//       res.json({mgs: "Presolicitud hecha"});
-//     } catch (error) {
-//       res.json(error + "Algo salió mal");
-
-//     }
-  
-
+        documentacion_ine_fisico,
+        documentacion_buro_fisico,
+        comprobante_domicilio,
+        situacion_fiscal,
+        ine_reprecentante,
+        buro_moral
+    })        
+      res.json({mgs: "Presolicitud hecha"});
+    } catch (error) {
+      res.json(error + "Algo salió mal");
+    }
 }
 
 exports.solicitudesShow = async (req, res) => {
@@ -175,7 +165,7 @@ exports.editar_solicitudes = async (req, res) => {
 
 exports.updateSolicitud = async (req, res) => {
   console.log('<*---Actualizar---*>');
-  console.log(req.body); //Bandera para los datos
+  console.log(formu); //Bandera para los datos
     
   var cliente = req.body.cliente.tipo;
   cliente = cliente.substring(0, 1); //Acortamiento del tipo de cliente a 1 solo caracter Fisico (f) / Moral (m)
