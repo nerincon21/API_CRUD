@@ -78,7 +78,10 @@ exports.crearSolicitud = async (req, res) => {
       
       console.log(formu.cliente_tipo);
       console.log(formu.cliente_rfc);
-      console.log(arch.documentacion_buro_fisico[0].path);
+      console.log(arch.documentacion_buro_fisico);
+      console.log(arch.documentacion_buro_fisico.size);
+      console.log(arch.documentacion_buro_fisico[0].size);
+      console.log(arch.documentacion_buro_fisico.name);
 
       if (formu.cliente_tipo == "f") {
         console.log("Vienen de fisico")
