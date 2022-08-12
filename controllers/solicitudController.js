@@ -40,13 +40,16 @@ exports.test = (req, res) =>{
 }
 
 exports.crearSolicitudPruebas = async (req, res) => {
+  var formu = req.body.formulario;
+  var arch = req.body.archivos;
+
   console.log('<*--------- Estamos en Crear (De Pruebas) ---------*>');
-  console.log('<*--------- INICIO DEL req.body ---------*>');
-  console.log(req.body); //Bandera para los datos
-  console.log('<*--------- FIN DEL req.body ---------*>');
-  console.log('<*--------- INICIO DEL req.files ---------*>');
-  console.log(req.files); //Bandera para los datos
-  console.log('<*--------- FIN DEL req.files ---------*>');
+  console.log('<*--------- INICIO DEL req.body.formulario ---------*>');
+  console.log(formu); //Bandera para los datos
+  console.log('<*--------- FIN DEL req.body.formulario ---------*>');
+  console.log('<*--------- INICIO DEL req.body.archivos ---------*>');
+  console.log(arch); //Bandera para los datos
+  console.log('<*--------- FIN DEL req.body.archivos ---------*>');
 
   return res.json({msg: "Ya díganle que revise la consola"});
 
