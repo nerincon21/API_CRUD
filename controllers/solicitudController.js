@@ -78,9 +78,9 @@ exports.crearSolicitud = async (req, res) => {
       
       console.log(formu.cliente_tipo);
       console.log(formu.cliente_rfc);
-      console.log(arch.documentacion_buro_fisico);
+/*       console.log(arch.documentacion_buro_fisico);
       console.log(arch.documentacion_buro_fisico.size);
-      console.log(arch.documentacion_buro_fisico.name);
+      console.log(arch.documentacion_buro_fisico.name); */
 
       if (formu.cliente_tipo == "f") {
         console.log("Vienen de fisico")
@@ -140,8 +140,10 @@ exports.crearSolicitud = async (req, res) => {
         ine_reprecentante,
         buro_moral
     })        
+      console.log("Presolicitud hecha");
       res.json({mgs: "Presolicitud hecha"});
     } catch (error) {
+      console.log("Valió sorbete");
       res.json(error + "Algo salió mal");
     }
 }
